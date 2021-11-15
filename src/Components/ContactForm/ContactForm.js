@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/Phonebook/phonebook-actions";
+import contactsOperations from "../../redux/Phonebook/phonebook-operations";
 import { v4 as uuid } from "uuid";
 import styles from "./ContactForm.module.css";
-// import { connect } from "react-redux";
 
-export default function ContactForm({ onSubmit2 }) {
+export default function ContactForm() {
   const contName = uuid();
   const contNumber = uuid();
 
@@ -35,8 +34,7 @@ export default function ContactForm({ onSubmit2 }) {
       number: number,
       id: uuid(),
     };
-    // onSubmit(cont)
-    dispatch(addContact(cont));
+    dispatch(contactsOperations.addContact(cont));
     resetForm();
   };
 
@@ -83,8 +81,3 @@ export default function ContactForm({ onSubmit2 }) {
     </form>
   );
 }
-
-// const mapDispatchToProps = (dispatch) => ({
-//   onSubmit2: (cont) => dispatch(addContact(cont)),
-// });
-// export default connect(null, mapDispatchToProps)(ContactForm);
