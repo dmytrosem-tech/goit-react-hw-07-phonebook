@@ -8,7 +8,7 @@ import {
   deleteContactError,
 } from "./phonebook-actions";
 
-axios.defaults.baseURL = "http://localhost:4040";
+axios.defaults.baseURL = "https://61923b18aeab5c0017105e79.mockapi.io";
 
 const addContact = (o) => (dispatch) => {
   dispatch(addContactRequest());

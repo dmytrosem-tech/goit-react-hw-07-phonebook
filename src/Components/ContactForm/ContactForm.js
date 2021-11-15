@@ -32,7 +32,6 @@ export default function ContactForm() {
     const cont = {
       name: name,
       number: number,
-      id: uuid(),
     };
     dispatch(contactsOperations.addContact(cont));
     resetForm();
