@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  fetchContactRequest,
+  fetchContactSuccess,
+  fetchContactError,
   addContactRequest,
   addContactSuccess,
   addContactError,
@@ -9,6 +12,14 @@ import {
 } from "./phonebook-actions";
 
 axios.defaults.baseURL = "https://61923b18aeab5c0017105e79.mockapi.io";
+
+const fetchContact = () => (dispatch) => {
+  dispatch(fetchContactRequest);
+  axios
+    .get("/contacts")
+    .then(({ data }) => dispatch(fetchContactSuccess(data)))
+    .catch((e) => dispatch(fetchContactError(e)));
+};
 
 const addContact = (o) => (dispatch) => {
   dispatch(addContactRequest());
@@ -29,4 +40,5 @@ const deleteContact = (contactId) => (dispatch) => {
 export default {
   addContact,
   deleteContact,
+  fetchContact,
 };

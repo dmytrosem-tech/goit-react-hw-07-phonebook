@@ -31,7 +31,7 @@ export default function ContactForm() {
     e.preventDefault();
     const cont = {
       name: name,
-      number: number,
+      phone: number,
     };
     dispatch(contactsOperations.addContact(cont));
     resetForm();

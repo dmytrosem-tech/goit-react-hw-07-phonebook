@@ -1,6 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {
   changeFilter,
+  fetchContactRequest,
+  fetchContactSuccess,
+  fetchContactError,
   addContactRequest,
   addContactSuccess,
   addContactError,
@@ -10,8 +13,8 @@ import {
 } from "./phonebook-actions";
 
 export const contactsList = createReducer([], {
+  [fetchContactSuccess]: (_, { payload }) => payload,
   [addContactSuccess]: (state, { payload }) => {
-    console.log(payload);
     if (state.some(({ name }) => name === payload.name)) {
       alert(`Sorry, contact is already in contacts list`);
       return state;
@@ -23,9 +26,15 @@ export const contactsList = createReducer([], {
 });
 
 export const loading = createReducer(false, {
+  [fetchContactRequest]: () => true,
+  [fetchContactSuccess]: () => false,
+  [fetchContactError]: () => false,
   [addContactRequest]: () => true,
   [addContactSuccess]: () => false,
   [addContactError]: () => false,
+  [deleteContactRequest]: () => true,
+  [deleteContactSuccess]: () => false,
+  [deleteContactError]: () => false,
 });
 
 export const contactsFilter = createReducer("", {
