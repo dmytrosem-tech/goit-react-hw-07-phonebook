@@ -1,6 +1,10 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import { contactsFilter, contactsList } from "./Phonebook/phonebook-reducer";
+import {
+  contactsFilter,
+  contactsList,
+  loading,
+} from "./Phonebook/phonebook-reducer";
 import logger from "redux-logger";
 
 import {
@@ -15,6 +19,7 @@ import {
 const phoneBookReducer = combineReducers({
   contacts: contactsList,
   filter: contactsFilter,
+  loading,
 });
 
 const middleware = [

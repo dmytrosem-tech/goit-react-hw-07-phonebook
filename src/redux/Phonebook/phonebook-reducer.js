@@ -14,13 +14,7 @@ import {
 
 export const contactsList = createReducer([], {
   [fetchContactSuccess]: (_, { payload }) => payload,
-  [addContactSuccess]: (state, { payload }) => {
-    if (state.some(({ name }) => name === payload.name)) {
-      alert(`Sorry, contact is already in contacts list`);
-      return state;
-    }
-    return [...state, payload];
-  },
+  [addContactSuccess]: (state, { payload }) => [...state, payload],
   [deleteContactSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });

@@ -1,14 +1,19 @@
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import ContactItem from "../ContactItem";
-import styles from "./ContactList.module.css";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { getContacts, getFilter } from "../../redux/Phonebook/selectors";
+import Loader from "../Loader/Loader";
 import contactsOperations from "../../redux/Phonebook/phonebook-operations";
+import {
+  getContacts,
+  getFilter,
+  getLoading,
+} from "../../redux/Phonebook/selectors";
+import styles from "./ContactList.module.css";
 
 export default function ContactList() {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
+  const isLoading = useSelector(getLoading);
   const dispatch = useDispatch();
 
   const getFilteredContacts = () => {
@@ -23,6 +28,7 @@ export default function ContactList() {
 
   return (
     <ul className={styles.contacts__list}>
+      {isLoading && <Loader />}
       {getFilteredContacts().map(({ name, phone, id }) => (
         <ContactItem key={id} name={name} number={phone} id={id} />
       ))}

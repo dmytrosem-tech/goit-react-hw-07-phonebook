@@ -1,7 +1,7 @@
 import { createAction } from "@reduxjs/toolkit";
 
 export const fetchContactRequest = createAction(
-  "contacts/fetchContactsSuccess"
+  "contacts/fetchContactsRequest"
 );
 export const fetchContactSuccess = createAction(
   "contacts/fetchContactsSuccess"
