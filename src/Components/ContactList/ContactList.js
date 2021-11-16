@@ -23,8 +23,8 @@ export default function ContactList() {
 
   return (
     <ul className={styles.contacts__list}>
-      {getFilteredContacts().map(({ name, number, id }) => (
-        <ContactItem key={id} name={name} number={number} id={id} />
+      {getFilteredContacts().map(({ name, phone, id }) => (
+        <ContactItem key={id} name={name} number={phone} id={id} />
       ))}
     </ul>
   );
