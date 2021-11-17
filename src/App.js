@@ -4,10 +4,6 @@ import Filter from "./Components/Filter";
 import ContactList from "./Components/ContactList";
 
 export default function App() {
-  // useEffect(() => {
-  //   window.localStorage.setItem("contacts", JSON.stringify(contacts));
-  // }, [contacts]);
-
   return (
     <div>
       <h1>Phonebook</h1>
@@ -18,7 +14,3 @@ export default function App() {
     </div>
   );
 }
-
-// const [contacts, setContacts] = useState(
-//   () => JSON.parse(window.localStorage.getItem("contacts")) ?? []
-// );
