@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ContactItem from "../ContactItem";
 import Loader from "../Loader/Loader";
-import contactsOperations from "../../redux/Phonebook/phonebook-operations";
+import { fetchContact } from "../../redux/Phonebook/phonebook-operations";
 import {
   getContacts,
   getFilter,
@@ -23,7 +23,7 @@ export default function ContactList() {
     );
   };
   useEffect(() => {
-    dispatch(contactsOperations.fetchContact());
+    dispatch(fetchContact());
   }, []);
 
   return (

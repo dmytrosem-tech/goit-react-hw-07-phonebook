@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import contactsOperations from "../../redux/Phonebook/phonebook-operations";
+import { deleteContact } from "../../redux/Phonebook/phonebook-operations";
 import PropTypes from "prop-types";
 import styles from "./ContactItem.module.css";
 
@@ -12,7 +12,7 @@ export default function ContactItem({ name, number, id }) {
       <p className={contact__name}>{name}</p>
       <p className={contact__number}>tel: {number}</p>
       <button
-        onClick={() => dispatch(contactsOperations.deleteContact(id))}
+        onClick={() => dispatch(deleteContact(id))}
         className={contacts__btn}
       >
         Delete contact

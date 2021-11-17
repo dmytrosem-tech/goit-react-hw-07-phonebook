@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "../../redux/Phonebook/selectors";
-import contactsOperations from "../../redux/Phonebook/phonebook-operations";
+import { addContact } from "../../redux/Phonebook/phonebook-operations";
 import { v4 as uuid } from "uuid";
 import styles from "./ContactForm.module.css";
 
@@ -38,7 +38,7 @@ export default function ContactForm() {
     if (contacts.some(({ name }) => name === cont.name)) {
       return alert(`Sorry, contact is already in contacts list`);
     }
-    dispatch(contactsOperations.addContact(cont));
+    dispatch(addContact(cont));
     resetForm();
   };
 
